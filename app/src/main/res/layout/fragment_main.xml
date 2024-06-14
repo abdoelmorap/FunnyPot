@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dash_board"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:background="@drawable/bg_toolbar"
+
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="22dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/menu_alt_04_svgrepo_com" />
+            <ImageView
+                android:id="@+id/logo"
+                android:paddingTop="20dp"
+                android:paddingBottom="22dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/logo" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="46dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="start"
+                android:text="@string/funnypot"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <ImageView
+                android:id="@+id/wighlist_btn"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="22dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/heart" />
+            <ImageView
+                android:id="@+id/cart_btn"
+                android:paddingStart="12dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/cart" />
+        </LinearLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+            android:id="@+id/image_slider"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/category_rv"
+            app:layout_constraintTop_toBottomOf="@id/image_slider"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/category_item"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/pupular_items"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/category_rv"
+            app:layout_constraintTop_toBottomOf="@+id/category_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pupular_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:listitem="@layout/small_card_item" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/featured_items"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/pupular_rv"
+            app:layout_constraintTop_toBottomOf="@+id/pupular_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/featured_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:listitem="@layout/small_card_item" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/my_favourite"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/featured_rv"
+            app:layout_constraintTop_toBottomOf="@+id/featured_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_fav_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:listitem="@layout/small_card_item" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/my_fav_rv"
+            app:layout_constraintTop_toBottomOf="@+id/my_fav_rv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout></ScrollView>

@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FunnyPot" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="myCoolColor">#262833</item>
+        <item name="wcolor">#262833</item>
+
+        <item name="cTextColor2">#673AB7</item>
+
+        <item name="cTextColor">#80000000</item>
+
+
+
+    </style>
+
+
+    <style name="ThemeEdit" >
+        <item name="android:editTextColor">#586CD8</item>
+    </style>
+</resources>

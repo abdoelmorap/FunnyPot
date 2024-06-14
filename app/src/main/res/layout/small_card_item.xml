@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/image_container"
+        android:elevation="15dp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/product_image"
+            android:id="@+id/item_image"
+            android:scaleType="fitXY"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginTop="-10dp"
+        android:textSize="16sp"
+        android:background="@drawable/card_background"
+        android:id="@+id/item_name"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_container"
+        app:layout_constraintStart_toStartOf="@+id/image_container"
+        app:layout_constraintTop_toBottomOf="@+id/image_container" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/price_amount"
+    android:padding="10dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:background="@drawable/card_background"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

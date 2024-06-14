@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.LogIn">
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:background="@drawable/bg_toolbar"
+
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:paddingStart="12dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="22dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+        <ImageView
+            android:id="@+id/logo"
+            android:paddingTop="20dp"
+            android:paddingBottom="22dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="46dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:gravity="start"
+            android:text="@string/funnypot"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+           </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/login" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:background="@drawable/bg_et"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:paddingStart="84dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animation_view" />
+    <LinearLayout
+        android:id="@+id/llFlags"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/bgttt"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/etPhone"
+        app:layout_constraintStart_toStartOf="@+id/etPhone"
+        app:layout_constraintTop_toTopOf="@+id/etPhone"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <ImageView
+            android:id="@+id/ivFlag"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/egypt" />
+
+        <TextView
+            android:id="@+id/tvCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="+20" />
+    </LinearLayout>
+
+    <store.funnypot.ui.activities.ui.fragments.OtpEditText
+        android:id="@+id/et_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:digits="1234567890"
+        android:inputType="number"
+        style="@style/ThemeEdit"
+        android:visibility="gone"
+        android:padding="10dp"
+        android:layout_margin="25dp"
+        android:maxLength="6"
+        android:layout_marginTop="150dp"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animation_view"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

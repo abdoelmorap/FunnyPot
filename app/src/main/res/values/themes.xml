@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FunnyPot" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="myCoolColor">#FFFFFF</item>
+        <item name="wcolor">#673AB7</item>
+
+        <item name="cTextColor">#80FFFFFF</item>
+
+        <item name="cTextColor2">#673AB7</item>
+        <item name="android:statusBarColor">?myCoolColor</item>
+    </style>
+    <style name="BottomNavigationViewTextStyle">
+<!--        <item name="fontFamily">@font/arabiafont</item>-->
+    </style>
+    <style name="Theme.FunnyPot" parent="Base.Theme.FunnyPot" />
+
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+
+    </style>
+
+    <style name="ThemeEdit" >
+        <item name="android:textColor">#3F51B5</item>
+        <item name="android:editTextColor">#3F51B5</item>
+
+    </style>
+
+
+
+</resources>

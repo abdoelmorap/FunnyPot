@@ -18,6 +18,7 @@ import store.funnypot.data.interfaces.MethodsInterFace;
 import store.funnypot.data.models.HomeData;
 import store.funnypot.data.models.ProductsModel;
 import store.funnypot.data.models.auth.LoginReq;
+import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.items.ItemsDetails;
 import store.funnypot.ui.activities.ItemDetails;
 
@@ -29,6 +30,7 @@ public class MainViewModel extends BaseViewModel {
     public MutableLiveData<ProductsModel> DataOfProducts = new MutableLiveData<>();
     public MutableLiveData<HomeData> HomeDataLive = new MutableLiveData<>();
     public MutableLiveData<ItemsDetails> itemDetailsMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<UserResponses> userResponsesMutableLiveData = new MutableLiveData<>();
 
 
 
@@ -105,7 +107,7 @@ public class MainViewModel extends BaseViewModel {
                 .observeOn(mainThread)
                 .subscribe((e)->{
                     changeLoadingStatus(false);
-
+                    userResponsesMutableLiveData.postValue(e);
                 },e->{
                     changeLoadingStatus(false);
 

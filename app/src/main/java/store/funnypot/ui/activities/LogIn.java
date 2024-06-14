@@ -111,7 +111,11 @@ public class LogIn extends BaseActivity {
            verifyPhoneNumberWithCode(mVerificationId,activityLogInBinding.etOtp.getText().toString());
        }
        });
-
+        mainViewModel.userResponsesMutableLiveData.observe(this,data->{
+            if (data.getUser().getId()!=0){
+                finish();
+            }
+        });
     }
 
     private void updateUI(FirebaseUser user) {

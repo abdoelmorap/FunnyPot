@@ -1,25 +1,27 @@
 package store.funnypot.data.models.auth;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private float id;
-    private String name;
-    private String email;
-    private String avatar = null;
-    private String dob = null;
-    private String phone;
-    private String created_at;
-    private String updated_at;
-    private String confirmed_at;
-    private String email_verify_token = null;
-    private float is_vendor;
-    private String vendor_verified_at = null;
-    private String status;
-    private String private_notes = null;
+    @SerializedName("id"  ) private int id;
+    @SerializedName("name"  ) private String name;
+    @SerializedName("email"  ) private String email;
+    @SerializedName("avatar"  ) private String avatar = null;
+    @SerializedName("dob"  ) private String dob = null;
+    @SerializedName("phone"  ) private String phone;
+    @SerializedName("created_at"  ) private String created_at;
+    @SerializedName("updated_at"  ) private String updated_at;
+    @SerializedName("confirmed_at"  ) private String confirmed_at;
+    @SerializedName("email_verify_token"  )  private String email_verify_token = null;
+    @SerializedName("is_vendor"  ) private float is_vendor;
+    @SerializedName("vendor_verified_at"  )  private String vendor_verified_at = null;
+    @SerializedName("status"  ) private String status;
+    @SerializedName("private_notes"  ) private String private_notes = null;
 
 
     // Getter Methods
 
-    public float getId() {
+    public int getId() {
         return id;
     }
 
@@ -77,7 +79,7 @@ public class User {
 
     // Setter Methods
 
-    public void setId(float id) {
+    public void setId(int id) {
         this.id = id;
     }
 

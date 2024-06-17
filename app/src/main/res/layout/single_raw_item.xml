@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="8dp"
+  android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="15dp"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/product_image"
+                android:scaleType="fitXY" />
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginRight="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/image_container"
+            app:layout_constraintTop_toTopOf="@+id/image_container" />
+        <TextView
+            android:id="@+id/discrbition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="35"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/image_container"
+            app:layout_constraintTop_toBottomOf="@+id/item_name" />
+
+        <RatingBar
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:rating="4.5"
+            app:layout_constraintEnd_toStartOf="@+id/image_container"
+            app:layout_constraintTop_toBottomOf="@+id/discrbition" />
+        <TextView
+            android:id="@+id/price_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_container"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

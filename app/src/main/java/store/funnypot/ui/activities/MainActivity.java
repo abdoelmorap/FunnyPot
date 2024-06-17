@@ -15,6 +15,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 import kotlin.reflect.KClass;
 import store.funnypot.base.BaseActivity;
 import store.funnypot.base.view.model.BaseViewModel;
+import store.funnypot.data.sharedPref.SharedConfg;
 import store.funnypot.databinding.ActivityMainBinding;
 import store.funnypot.util.helper.ProgressHelper;
 import store.funnypot.view.modelView.MainViewModel;
@@ -31,11 +32,17 @@ public class MainActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(MainActivity.this, DashBoard.class);
-                startActivity(i);
-                finish();
+                String token=getToken(MainActivity.this);
+                mainViewModel.getprofile(token);
+                mainViewModel.getUserMutableLiveData.observe(MainActivity.this,data->{
+                 new SharedConfg().saveUser(MainActivity.this,data);
+                    Intent i = new Intent(MainActivity.this, DashBoard.class);
+                    startActivity(i);
+
+                    MainActivity.this.finish();
+                });
             }
-        }, 4000);
+        }, 2000);
 
         }
 

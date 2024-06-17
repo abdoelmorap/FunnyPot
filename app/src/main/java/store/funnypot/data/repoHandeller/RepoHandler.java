@@ -14,7 +14,10 @@ import store.funnypot.data.apiFollowManger.ApiFollowInterface;
 import store.funnypot.data.models.HomeData;
 import store.funnypot.data.models.ProductsModel;
 import store.funnypot.data.models.auth.LoginReq;
+import store.funnypot.data.models.auth.User;
 import store.funnypot.data.models.auth.UserResponses;
+import store.funnypot.data.models.cart.Cart;
+import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
 import store.funnypot.data.services.ServiceProvider;
 import store.funnypot.ui.activities.ItemDetails;
@@ -43,12 +46,56 @@ public class RepoHandler  {
             emitter.onSuccess(res.body());
         });
     }
-    public Maybe<UserResponses> LoginFun(LoginReq id){
+    public Maybe<UserResponses> LoginFun(String phone){
         return  Maybe.create(emitter -> {
             ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
-            Response<UserResponses> res= serviceProvider.loginRetro(id).execute();
+            Response<UserResponses> res= serviceProvider.loginRetro(new LoginReq(phone)).execute();
             emitter.onSuccess(res.body());
         });
     }
+    public Maybe<UserResponses> UpdateName(String token, User user){
+        return  Maybe.create(emitter -> {
+            ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
+            Response<UserResponses> res= serviceProvider.UpdateNameRetro(token,user).execute();
+            if (res.isSuccessful()) {
+                emitter.onSuccess(res.body());
+            }else {
+                emitter.onError(new Throwable(res.message()));
+            }
+        });
+    }
+    public Maybe<UserResponses> getProfileData(String token){
+        return  Maybe.create(emitter -> {
+            ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
+            Response<UserResponses> res= serviceProvider.getProfile(token).execute();
+            if (res.isSuccessful()) {
+                emitter.onSuccess(res.body());
+            }else {
+                emitter.onError(new Throwable(res.message()));
+            }
+        });
+    }
 
+    public Maybe<Cart> AddItemToCart(String token, CartAdd add){
+        return  Maybe.create(emitter -> {
+            ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
+            Response<Cart> res= serviceProvider.addtoCart(token,add).execute();
+            if (res.isSuccessful()) {
+                emitter.onSuccess(res.body());
+            }else {
+                emitter.onError(new Throwable(res.message()));
+            }
+        });
+    }
+    public Maybe<Cart> CartItems(String token){
+        return  Maybe.create(emitter -> {
+            ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
+            Response<Cart> res= serviceProvider.cart(token).execute();
+            if (res.isSuccessful()) {
+                emitter.onSuccess(res.body());
+            }else {
+                emitter.onError(new Throwable(res.message()));
+            }
+        });
+    }
 }

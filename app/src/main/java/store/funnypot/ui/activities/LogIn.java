@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
 import store.funnypot.R;
 import store.funnypot.base.BaseActivity;
 import store.funnypot.base.view.model.BaseViewModel;
+import store.funnypot.data.sharedPref.SharedConfg;
 import store.funnypot.databinding.ActivityLogInBinding;
 import store.funnypot.view.modelView.MainViewModel;
 
@@ -112,14 +113,16 @@ public class LogIn extends BaseActivity {
        }
        });
         mainViewModel.userResponsesMutableLiveData.observe(this,data->{
-            if (data.getUser().getId()!=0){
+                new  SharedConfg().saveToken(this,data.getAuthorisation().getToken());
+                new  SharedConfg().saveUser(this,data.getUser());
+                new  SharedConfg().saveLogIn(this,true);
                 finish();
-            }
+
         });
     }
 
     private void updateUI(FirebaseUser user) {
-           mainViewModel.login(user.getPhoneNumber());
+           mainViewModel.login(activityLogInBinding.etPhone.getText().toString());
     }
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
 

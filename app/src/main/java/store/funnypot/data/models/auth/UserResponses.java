@@ -1,10 +1,12 @@
 package store.funnypot.data.models.auth;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserResponses {
-    private String status;
-    User UserObject;
-    Authorisation AuthorisationObject;
+    @SerializedName("status"  ) private String status;
+    @SerializedName("user"  ) User UserObject;
+    @SerializedName("authorisation"  ) Authorisation AuthorisationObject;
 
 
     // Getter Methods

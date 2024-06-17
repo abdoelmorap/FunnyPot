@@ -9,4 +9,6 @@ public abstract class Constants {
     public static final String HTTP_HEADER_AUTHORIZATION_IDENTIFIER = "token ";
     public static final String GITHUB_ACCESS_TOKEN = "AUTH_TOKEN_GOES_HERE";
     public static final String IMAGE_PATH ="https://funnypot.store/storage/";
+
+    public static final int MAX_PROCESS_AVAILABLE = 1;
 }

@@ -78,6 +78,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:elevation="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/back_box"
             android:layout_marginBottom="-25dp"
             app:layout_constraintBottom_toBottomOf="@+id/main_Image_card"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,23 +88,35 @@
 
             <ImageView
                 android:id="@+id/sec"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                style="@style/roundedImageView"
                 android:src="@drawable/logo" />
 
             <ImageView
                 android:id="@+id/sec2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                style="@style/roundedImageView"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/logo" />
 
             <ImageView
                 android:id="@+id/sec3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_width="40dp"
+                style="@style/roundedImageView"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/logo" />
         </LinearLayout>
 
@@ -117,11 +132,11 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
             <ImageView
+                android:id="@+id/main_Image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/main_Image"
                 android:scaleType="fitXY"
-                android:src="@drawable/logo"/>
+                android:src="@drawable/logo" />
 
 
         </androidx.cardview.widget.CardView>
@@ -129,7 +144,7 @@
 
         <TextView
             android:id="@+id/price_product"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -143,6 +158,8 @@
             android:layout_height="wrap_content"
 
             android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="40dp"
@@ -161,6 +178,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_product" />
 
+        <RatingBar
+            android:id="@+id/rate_box"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/main_Image_card"
+            app:layout_constraintTop_toBottomOf="@+id/title_product" />
         <WebView
             android:id="@+id/desc_details"
             android:layout_width="match_parent"
@@ -172,12 +198,13 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/main_Image_card"
             app:layout_constraintStart_toStartOf="@+id/main_Image_card"
-            app:layout_constraintTop_toBottomOf="@+id/price_product" />
+            app:layout_constraintTop_toBottomOf="@+id/rate_box" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:id="@+id/add_to_cart_btn"
             android:layout_marginEnd="158dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"

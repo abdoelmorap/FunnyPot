@@ -42,6 +42,7 @@ public enum ServiceProvider {
 
                     put("Accept", "application/json");
                     put("Content-Type", "application/json");
+
                 }
             }));
             httpClientBuilder.interceptors().add(logging);

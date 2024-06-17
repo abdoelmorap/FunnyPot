@@ -10,10 +10,14 @@
 
         <item name="cTextColor">#80000000</item>
 
+        <item name="editTextColor2">#80A29999</item>
 
+        <item name="alerColor">#3D3943</item>
 
     </style>
-
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog.Alert">
+        <item name="dialogCornerRadius">24dp</item>
+    </style>
 
     <style name="ThemeEdit" >
         <item name="android:editTextColor">#586CD8</item>

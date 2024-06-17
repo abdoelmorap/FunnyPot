@@ -1,8 +1,10 @@
 package store.funnypot.data.models.auth;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Authorisation {
-    private String token;
-    private String type;
+    @SerializedName("token"  ) private String token;
+    @SerializedName("type"  ) private String type;
 
 
     // Getter Methods

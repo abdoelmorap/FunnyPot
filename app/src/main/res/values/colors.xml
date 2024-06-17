@@ -6,6 +6,8 @@
     <attr name="wcolor" format="color" />
     <attr name="cTextColor" format="color" />
     <attr name="cTextColor2" format="color" />
+    <attr name="editTextColor2" format="color" />
     <color name="transparent">#00000000</color>
 
+    <attr name="alerColor" format="color" />
 </resources>

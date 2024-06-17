@@ -17,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 import store.funnypot.R;
 import store.funnypot.base.BaseActivity;
 import store.funnypot.base.view.model.BaseViewModel;
+import store.funnypot.data.sharedPref.SharedConfg;
 import store.funnypot.databinding.ActivityDashBoardBinding;
 import store.funnypot.ui.activities.ui.fragments.CartFragment;
 import store.funnypot.ui.activities.ui.fragments.DashBoardFragment;
@@ -29,6 +30,7 @@ import store.funnypot.view.modelView.MainViewModel;
 public class DashBoard extends BaseActivity {
     ActivityDashBoardBinding activityDashBoardBinding;
     MainViewModel mainViewModel ;
+    int currentSelected =0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,40 +39,43 @@ public class DashBoard extends BaseActivity {
                     .replace(R.id.container, DashBoardFragment.newInstance())
                     .commitNow();
         }
-
+        currentSelected= activityDashBoardBinding.bnv2.getSelectedItemId();
         activityDashBoardBinding.bnv2.setOnItemSelectedListener(item -> {
+            if (currentSelected != item.getItemId()) {
 
-            Log.d("TAG", "onCreate: "+(item.getItemId() == R.id.navHome)+" and "+(item.getItemId() ));
+                Log.d("TAG", "onCreate: " + (item.getItemId() == R.id.navHome) + " and " + (item.getItemId()));
 
-            if (item.getItemId() == R.id.navHome) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, DashBoardFragment.newInstance())
-                        .commitNow();
-            } else if (item.getItemId() == R.id.navOrders) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, CartFragment.newInstance("",""))
-                        .commitNow();
-            }else   if (item.getItemId() == R.id.navMessage ) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, OrdersFragment.newInstance("",""))
-                        .commitNow();
-                Log.d("TAG", "onNavigationItemSelected: Hi");}
-            else    if (item.getItemId() == R.id.navSettings ) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, SettingsFragment.newInstance("",""))
-                        .commitNow();                    }
+                if (item.getItemId() == R.id.navHome) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, DashBoardFragment.newInstance())
+                            .commitNow();
+                } else if (item.getItemId() == R.id.navOrders) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, CartFragment.newInstance("", ""))
+                            .commitNow();
+                } else if (item.getItemId() == R.id.navMessage) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, OrdersFragment.newInstance("", ""))
+                            .commitNow();
+                    Log.d("TAG", "onNavigationItemSelected: Hi");
+                } else if (item.getItemId() == R.id.navSettings) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, SettingsFragment.newInstance("", ""))
+                            .commitNow();
+                }
 
 
-
+            }
+            currentSelected= item.getItemId();
             return true;}
         );
         BadgeDrawable badge = activityDashBoardBinding.bnv2.getOrCreateBadge( R.id.navOrders);
         badge.setVisible(true);
-        badge.setNumber(5);
+        badge.setNumber(new SharedConfg().getCounterCart(DashBoard.this));
 
-        BadgeDrawable badge2 = activityDashBoardBinding.bnv2.getOrCreateBadge( R.id.navSettings);
-        badge2.setVisible(true);
-        badge2.setNumber(2);
+//        BadgeDrawable badge2 = activityDashBoardBinding.bnv2.getOrCreateBadge( R.id.navSettings);
+//        badge2.setVisible(true);
+//        badge2.setNumber(2);
     }
 
     @Override

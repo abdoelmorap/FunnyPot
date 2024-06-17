@@ -16,4 +16,5 @@
     <string name="my_favourite">My Favourite</string>
     <string name="describtion">Description : </string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="your_name_is">Your Name is?</string>
 </resources>

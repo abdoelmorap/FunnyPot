@@ -7,10 +7,15 @@
         <item name="myCoolColor">#FFFFFF</item>
         <item name="wcolor">#673AB7</item>
 
+        <item name="alerColor">#FFFFFF</item>
         <item name="cTextColor">#80FFFFFF</item>
 
+        <item name="editTextColor2">#80DCDADA</item>
         <item name="cTextColor2">#673AB7</item>
         <item name="android:statusBarColor">?myCoolColor</item>
+    </style>
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog.Alert">
+        <item name="dialogCornerRadius">24dp</item>
     </style>
     <style name="BottomNavigationViewTextStyle">
 <!--        <item name="fontFamily">@font/arabiafont</item>-->

@@ -18,7 +18,7 @@ public abstract class BaseViewModel extends AndroidViewModel {
     }
     public  MutableLiveData<String> sendMsg = new MutableLiveData<>();
      public  MutableLiveData<Boolean> loadingLiveData = new MutableLiveData<>();
-     void sendMsgToUI(String msg){
+     protected void sendMsgToUI(String msg){
              sendMsg.postValue(msg);
 
      }

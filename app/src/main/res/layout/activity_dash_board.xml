@@ -7,14 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.DashBoard">
 
-<FrameLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/container"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="67dp"
+        app:layout_constraintBottom_toTopOf="@+id/bnv2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <com.google.android.material.bottomnavigation.BottomNavigationView
 android:id="@+id/bnv2"

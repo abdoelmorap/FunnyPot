@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context=".ui.activities.PlaceOrder"
+    android:contentDescription="@string/searchbar_scrolling_view_behavior"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_address"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:padding="10dp">
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/title"
+          android:layout_margin="18dp"
+          android:text="@string/address"
+          android:textSize="22sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <EditText
+          android:id="@+id/etCountry"
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:paddingStart="12dp"
+          android:layout_margin="15dp"
+          android:background="@drawable/bg_et"
+          android:ems="10"
+          android:hint="Country"
+          android:inputType="text"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/title" />
+      <EditText
+          android:id="@+id/etCity"
+          android:layout_width="wrap_content"
+          android:layout_height="50dp"
+          android:layout_margin="15dp"
+          android:background="@drawable/bg_et"
+          android:ems="10"
+          android:hint="City"
+          android:inputType="text"
+          android:paddingStart="12dp"
+          android:textSize="14sp"
+          app:layout_constraintStart_toEndOf="@+id/etCountry"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/title" />
+      <EditText
+          android:id="@+id/etState"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_margin="15dp"
+          android:background="@drawable/bg_et"
+          android:ems="10"
+          android:hint="State"
+          android:inputType="text"
+          android:paddingStart="18dp"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/etCity" />
+      <EditText
+          android:id="@+id/etAddress"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_margin="15dp"
+          android:background="@drawable/bg_et"
+          android:ems="10"
+          android:hint="Address"
+          android:inputType="text"
+          android:paddingStart="18dp"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/etState" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cart_rv"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/card_address"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/small_card_item"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/cart_rv"
+      app:layout_constraintStart_toStartOf="parent">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/bg_btm_sheet"
+          android:padding="10dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent">
+
+          <LinearLayout
+              android:id="@+id/labeled_container"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="20dp"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Total:" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Tax:" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Delivery:" />
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/data_container"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="20dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/sub_total" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/tax_fees" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/delivery_fees" />
+
+          </LinearLayout>
+
+          <TextView
+              android:id="@+id/all_total"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/labeled_container" />
+
+          <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:layout_marginStart="220dp"
+              android:layout_marginEnd="25dp"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              android:text="Checkout"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/all_total"
+              app:layout_constraintTop_toBottomOf="@+id/labeled_container" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

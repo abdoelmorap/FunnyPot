@@ -2,32 +2,26 @@ package store.funnypot.view.modelView;
 
 import android.app.Activity;
 import android.app.Application;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import javax.inject.Inject;
 
-import io.reactivex.MaybeObserver;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import store.funnypot.base.view.model.BaseViewModel;
 import store.funnypot.data.impl.RepoImpl;
 import store.funnypot.data.interfaces.MethodsInterFace;
 import store.funnypot.data.models.HomeData;
 import store.funnypot.data.models.ProductsModel;
-import store.funnypot.data.models.auth.LoginReq;
 import store.funnypot.data.models.auth.User;
 import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.cart.Cart;
 import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
+import store.funnypot.data.models.orders.orderPre.OrderPre;
 import store.funnypot.data.sharedPref.SharedConfg;
-import store.funnypot.ui.activities.ItemDetails;
 
 public class MainViewModel extends BaseViewModel {
 
@@ -42,6 +36,7 @@ public class MainViewModel extends BaseViewModel {
     public MutableLiveData<User> getUserMutableLiveData = new MutableLiveData<>();
     public MutableLiveData<Cart> mCartDetailsMutableLiveData = new MutableLiveData<>();
 
+    public MutableLiveData<OrderPre> orderPrepareLiveData = new MutableLiveData<>();
 
     @Inject
     public MainViewModel(@NonNull Application application) {
@@ -133,6 +128,20 @@ public class MainViewModel extends BaseViewModel {
                 },e->{
 
                     sendMsgToUI("No Internet Or something Wrong Happened");
+                });
+        compositeDisposable.add(disposable); //IDE is satisfied that the Disposable is being managed.
+
+    }
+    public  void prepareForOrder(String token) {
+        MethodsInterFace methodsInterFace = new RepoImpl();
+        CompositeDisposable compositeDisposable = new CompositeDisposable();
+        Disposable disposable=    methodsInterFace.prepareForOrder( token).subscribeOn(ioScheduler)
+                .observeOn(mainThread)
+                .subscribe((e)->{
+                    orderPrepareLiveData.postValue(e);
+                },e->{
+
+                    sendMsgToUI("No Internet Or something Wrong Happened"+e.toString());
                 });
         compositeDisposable.add(disposable); //IDE is satisfied that the Disposable is being managed.
 

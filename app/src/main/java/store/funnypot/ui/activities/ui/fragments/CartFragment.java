@@ -1,5 +1,6 @@
 package store.funnypot.ui.activities.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import store.funnypot.data.models.cart.Item;
 import store.funnypot.data.sharedPref.SharedConfg;
 import store.funnypot.databinding.FragmentCartBinding;
 import store.funnypot.ui.activities.ItemDetails;
+import store.funnypot.ui.activities.PlaceOrder;
 import store.funnypot.view.modelView.MainViewModel;
 
 /**
@@ -96,6 +98,10 @@ public class CartFragment extends BaseFragment {
             allTotal=allTotal+price;
         }
         fragmentCartBinding.allTotal.setText(allTotal+",00-EG");
+        fragmentCartBinding.checkoutBTN.setOnClickListener(view ->
+        {
+            startActivity(new Intent(requireActivity(), PlaceOrder.class));
+        });
     }
 
     private void setDataOfCartItems(ArrayList<Item> items) {

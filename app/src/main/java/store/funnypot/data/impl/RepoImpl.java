@@ -12,6 +12,7 @@ import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.cart.Cart;
 import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
+import store.funnypot.data.models.orders.orderPre.OrderPre;
 import store.funnypot.data.repoHandeller.RepoHandler;
 import store.funnypot.ui.activities.ItemDetails;
 
@@ -58,6 +59,11 @@ public class RepoImpl extends RepoHandler  implements MethodsInterFace {
     @Override
     public Maybe<Cart> addToCart(String token, CartAdd cartAdd) {
         return AddItemToCart(token,cartAdd);
+    }
+
+    @Override
+    public Maybe<OrderPre> prepareForOrder(String token) {
+        return orderPrepare(token);
     }
 
 

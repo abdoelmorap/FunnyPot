@@ -19,6 +19,7 @@ import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.cart.Cart;
 import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
+import store.funnypot.data.models.orders.orderPre.OrderPre;
 import store.funnypot.data.services.ServiceProvider;
 import store.funnypot.ui.activities.ItemDetails;
 
@@ -68,6 +69,17 @@ public class RepoHandler  {
         return  Maybe.create(emitter -> {
             ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
             Response<UserResponses> res= serviceProvider.getProfile(token).execute();
+            if (res.isSuccessful()) {
+                emitter.onSuccess(res.body());
+            }else {
+                emitter.onError(new Throwable(res.message()));
+            }
+        });
+    }
+    public Maybe<OrderPre> orderPrepare(String token){
+        return  Maybe.create(emitter -> {
+            ApiFollowInterface serviceProvider =   ServiceProvider.getGithubService();
+            Response<OrderPre> res= serviceProvider.orderPrepare(token).execute();
             if (res.isSuccessful()) {
                 emitter.onSuccess(res.body());
             }else {

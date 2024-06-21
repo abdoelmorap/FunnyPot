@@ -157,6 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:paddingStart="20dp"
+            android:id="@+id/checkoutBTN"
             android:paddingEnd="20dp"
             android:text="Checkout"
             app:layout_constraintBottom_toBottomOf="parent"

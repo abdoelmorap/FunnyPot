@@ -9,6 +9,7 @@ import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.cart.Cart;
 import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
+import store.funnypot.data.models.orders.orderPre.OrderPre;
 
 
 public interface MethodsInterFace {
@@ -22,4 +23,5 @@ public interface MethodsInterFace {
     Maybe<UserResponses> getProfile(String token);
     Maybe<Cart> getCartItems(String token);
     Maybe<Cart> addToCart(String token, CartAdd cartAdd);
+    Maybe<OrderPre> prepareForOrder(String token);
 }

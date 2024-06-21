@@ -18,6 +18,7 @@ import store.funnypot.data.models.auth.UserResponses;
 import store.funnypot.data.models.cart.Cart;
 import store.funnypot.data.models.cart.CartAdd;
 import store.funnypot.data.models.items.ItemsDetails;
+import store.funnypot.data.models.orders.orderPre.OrderPre;
 
 public interface ApiFollowInterface {
     @GET("/products")
@@ -38,6 +39,9 @@ public interface ApiFollowInterface {
 
     @GET("/public/api/user/profile")
     public Call<UserResponses> getProfile(@Header("Authorization") String token);
+
+    @GET("/public/api/orders/prepair")
+    public Call<OrderPre> orderPrepare(@Header("Authorization") String token);
 
     @GET("/public/api/cart")
     public Call<Cart> cart(@Header("Authorization") String token);

@@ -24,6 +24,9 @@ import store.funnypot.ui.activities.ui.fragments.DashBoardFragment;
 import store.funnypot.ui.activities.ui.fragments.OrdersFragment;
 import store.funnypot.ui.activities.ui.fragments.SettingsFragment;
 import store.funnypot.view.modelView.MainViewModel;
+import androidx.activity.OnBackPressedCallback;
+
+
 
 
 @AndroidEntryPoint
@@ -31,6 +34,8 @@ public class DashBoard extends BaseActivity {
     ActivityDashBoardBinding activityDashBoardBinding;
     MainViewModel mainViewModel ;
     int currentSelected =0;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,7 @@ public class DashBoard extends BaseActivity {
                     .replace(R.id.container, DashBoardFragment.newInstance())
                     .commitNow();
         }
+
         currentSelected= activityDashBoardBinding.bnv2.getSelectedItemId();
         activityDashBoardBinding.bnv2.setOnItemSelectedListener(item -> {
             if (currentSelected != item.getItemId()) {
@@ -72,7 +78,18 @@ public class DashBoard extends BaseActivity {
         BadgeDrawable badge = activityDashBoardBinding.bnv2.getOrCreateBadge( R.id.navOrders);
         badge.setVisible(true);
         badge.setNumber(new SharedConfg().getCounterCart(DashBoard.this));
+        this.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+//
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.container, DashBoardFragment.newInstance())
+//                        .commitNow();
+//                activityDashBoardBinding.bnv2.setSelectedItemId(R.id.navHome);
 
+
+            }
+        });
 //        BadgeDrawable badge2 = activityDashBoardBinding.bnv2.getOrCreateBadge( R.id.navSettings);
 //        badge2.setVisible(true);
 //        badge2.setNumber(2);
